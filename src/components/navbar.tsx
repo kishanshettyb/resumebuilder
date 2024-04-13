@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from './ui/button';
 import { PrimaryMenu } from './menu/index';
 import { ModeToggle } from './modeToggle';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -14,10 +15,14 @@ const Navbar = () => {
         </div>
         <div className="flex items-cente justify-center">
           <ModeToggle />
-          <Button variant="outline" className="mx-2">
-            Login
-          </Button>
-          <Button variant="default">Sign Up</Button>
+          <Link href="../login">
+            <Button variant="outline" className="mx-2">
+              Login
+            </Button>
+          </Link>
+          <Link href="../signup">
+            <Button variant="default">Sign Up</Button>
+          </Link>
         </div>
       </div>
     </div>

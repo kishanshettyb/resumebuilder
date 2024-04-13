@@ -1,9 +1,11 @@
 'use client';
 
-import * as React from 'react';
 import Link from 'next/link';
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { Icons } from '@/components/icons';
+import { CoverLetter, getCoverLetter, Resume, getResume } from './items';
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,7 +15,6 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle
 } from '@/components/ui/navigation-menu';
-import { CoverLetter, getCoverLetter, Resume, getResume } from './items';
 
 export function PrimaryMenu() {
   const components: CoverLetter[] = getCoverLetter();
@@ -28,7 +29,7 @@ export function PrimaryMenu() {
               <li className="row-span-3">
                 <NavigationMenuLink asChild>
                   <a
-                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    className="flex h-full w-full select-none flex-col justify-end items-start rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/"
                   >
                     <Icons.logo className="h-6 w-6" />
@@ -42,9 +43,9 @@ export function PrimaryMenu() {
               </li>
               <li>
                 {resumemenulists.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href}>
-                    {component.description}
-                  </ListItem>
+                  <Link key={component.title} href={component.href}>
+                    <ListItem title={component.title}>{component.description}</ListItem>
+                  </Link>
                 ))}
               </li>
             </ul>
@@ -55,20 +56,20 @@ export function PrimaryMenu() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
-                <ListItem key={component.title} title={component.title} href={component.href}>
-                  {component.description}
-                </ListItem>
+                <Link key={component.title} href={component.href}>
+                  <ListItem title={component.title}>{component.description}</ListItem>
+                </Link>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="../blog" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>Blog</NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
+          <Link href="../faq" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               FAQ&apos;s
             </NavigationMenuLink>
