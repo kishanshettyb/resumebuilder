@@ -5,7 +5,7 @@ export default function Home() {
       <Navbar />
       <div className="container mx-auto">
         <div className="w-4/5 my-48">
-          <h1 className="text-slate-700 mb-5 text-6xl text-center font-bold">
+          <h1 className="text-slate-700 dark:text-slate-50 mb-5 text-6xl text-center font-bold">
             Unlock
             <br /> Your Career Potential
           </h1>
