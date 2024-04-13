@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button } from './ui/button';
-import { PrimaryMenu } from './menu';
+import { PrimaryMenu } from './menu/index';
 import { ModeToggle } from './modeToggle';
 
 const Navbar = () => {
