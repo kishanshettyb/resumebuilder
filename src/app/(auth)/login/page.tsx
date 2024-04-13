@@ -8,7 +8,6 @@ type Props = {};
 
 export default async function Login({}: Props) {
   const session = await getServerSession(authConfig);
-  console.log('Session: ', session);
   if (session) return redirect('/');
   return (
     <div className="container">
