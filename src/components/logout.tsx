@@ -8,7 +8,7 @@ type Props = {};
 function Logout({}: Props) {
   return (
     <div className="font-normal text-center">
-      <Button variant="ghost" onClick={() => signOut()}>
+      <Button className="w-full" variant="outline" onClick={() => signOut()}>
         Sign out
       </Button>
     </div>
