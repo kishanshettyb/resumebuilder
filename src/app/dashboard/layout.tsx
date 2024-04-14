@@ -1,3 +1,4 @@
+import NavbarDashboard from '@/components/navbarDashboard';
 import React from 'react';
 
 function DashboardLayout({
@@ -5,7 +6,12 @@ function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <NavbarDashboard />
+      <div className="bg-green-50 h-full"> {children}</div>
+    </div>
+  );
 }
 
 export default DashboardLayout;
