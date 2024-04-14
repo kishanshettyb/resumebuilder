@@ -12,22 +12,14 @@ export const authConfig: NextAuthOptions = {
   callbacks: {
     async signIn({ user }) {
       try {
-        const token =
-          '2b85878c22ebc826c810e5397b4ed99fe913bfdd5cb97a94d79ca4b490c9eff853210efd94840d0848a7ced24b6901c1e1c22cdf5dc76552750887d0704c69a24a59bc41e291f86cd984296a9c7ddc5be775b41cb45085cd6bce33463c1a93560eff1679c9d85eeef6977cdc8f033f6e0c5af00b44434b49af74f3ce0ab811d6';
+        const token = process.env.TOKEN;
         const response = await axios.get('http://localhost:1337/api/signups/', {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
         const result = response.data;
-        let emailFound = false;
-
-        result.data.forEach(async (item) => {
-          if (item.attributes.email == user.email) {
-            emailFound = true;
-          }
-        });
-
+        const emailFound = result.data.some((item) => item.attributes.email === user.email);
         if (!emailFound) {
           const postData = {
             data: {
@@ -44,7 +36,7 @@ export const authConfig: NextAuthOptions = {
           });
         }
       } catch (error) {
-        console.log(error.response);
+        console.error('Error during sign-in:', error);
       }
       return user;
     }
