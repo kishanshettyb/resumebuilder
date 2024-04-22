@@ -10,6 +10,8 @@ function layout({
   return (
     <div>
       <Navbar />
+      <Footer />
+
       {children}
       <Footer />
     </div>
